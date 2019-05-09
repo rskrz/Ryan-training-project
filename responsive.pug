@@ -5,35 +5,37 @@ html(lang='en')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='https://unpkg.com/tachyons/css/tachyons.min.css')
     body
-        .flex-ns.ml7
-            .db.mt7
+        .flex.flex-row-l.justify-center-l.flex-column-reverse.ml7-l.items-center.mb6.mb0-ns
+            .db.mt7-l.mt2-m.w5.w-auto-ns.mt6.tc.tl-ns.mr4-l
                 h1.sans-serif.f2
                         | The best website, ever.
-                h3.seirf.mb6
+                h3.sans-serif.mb6-l.mb5-m.w-auto-ns.f3
                     | So simple. So blank. Nothing to love
-                    br 
+                    br
                     | & nothing to hate.
-            img(src="../assets/globe.svg", alt="").ml5.mb5.mt6
-        .bg-dark-gray
-            .flex.justify-around.white.f3.sans-serif
-                h2.mt6
-                    | Simply Stunning
-                h2.mt6
-                    | Boring you say?
-                h2.mt6
-                    | Still boring?
-            .flex.justify-around.white.f5.sans-serif
-                p.mb6
-                    | What can i say? This site is
-                    br
-                    | great.
-                p
-                    | I would have to disagree. This
-                    br
-                    | site is as exciting as the tooth
-                    br
-                    | fairy.
-                p
-                    | Listen here. Art is in the eye of
-                    br
-                    | the beholder. back off.
+            img(src="../assets/globe.svg", alt="").ml5-l.mb5-l.mt6-l.mt5-m.db-ns.dn.mr6-l
+        .bg-dark-gray.vh-50-l
+            .flex.flex-row-l.justify-around-l.flex-column.items-center
+                .flex-l.flex-column-l.white.sans-serif.self-start-m.ml5-m
+                    h2.mt6.f3.tc.tl-ns
+                        | Simply Stunning
+                    p.f5
+                        | What can i say? This site is
+                        br
+                        | great.
+                .flex-l.flex-column-l.white.f3.sans-serif.self-end-m.mr5-m
+                    h2.mt6.f3.tc.tl-ns
+                        | Boring you say?
+                    p.f5
+                        | I would have to disagree. This
+                        br
+                        | site is as exciting as the tooth
+                        br
+                        | fairy.
+                .flex-l.flex-column-l.white.f3.sans-serif.self-start-m.ml5-m
+                    h2.mt6.f3.tc.tl-ns
+                        | Still boring?
+                    p.f5.mb6.mb0-l
+                        | Listen here. Art is in the eye of
+                        br
+                        | the beholder. back off.
