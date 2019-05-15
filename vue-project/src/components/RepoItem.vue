@@ -1,12 +1,12 @@
 <template lang="pug">
-    div
-        .item
-            img(:src="repo.owner.avatar_url")
-            h3
-                a(:href="repo.owner.url")
-                    | {{ repo.owner.login }} / {{ repo.name }}
-            p
-                | {{ repo.description }}
+    div(id="RepoItem")
+        .flex.items-center.pa3
+            img(:src="repo.owner.avatar_url").w4.h4.dib
+            .dib.ml3.mb0.mt0
+                h3.mt0.mb2
+                    a(:href="repo.owner.html_url") {{ repo.owner.login }} / 
+                    a(:href="repo.html_url") {{ repo.name }}
+                p.mt0 {{ repo.description }}
 </template>
 
 <script>
@@ -16,3 +16,7 @@ export default {
 }
 </script>
 
+<style scoped lang="scss">
+#RepoItem {
+}
+</style>

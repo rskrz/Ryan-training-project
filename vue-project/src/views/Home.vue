@@ -1,16 +1,19 @@
 <template lang="pug">
-  .home
+  div.flex.flex-column.justify-center.items-center
+    Header
     Repos(v-bind:repos="repos")
 </template>
 
 <script>
 import Repos from '@/components/Repos.vue';
+import Header from '@/components/Header.vue';
 import axios from 'axios';
 
 export default {
   name: 'Home',
   components: {
-    Repos
+    Repos,
+    Header
   },
   data() {
     return {

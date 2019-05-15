@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    div(id="Repos").w-50
         div(v-for="repo in repos" :key="repo.id")
             RepoItem(:repo="repo")
 </template>
@@ -14,3 +14,9 @@ export default {
     props: ["repos"]
 }
 </script>
+
+<style scoped lang="scss">
+#Repos {
+    outline: 0.1px solid #979797;
+}
+</style>
