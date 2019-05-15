@@ -12,9 +12,8 @@ h3 {
     @extend .f3, .o-90;
 }
 
-h3:link {
-    color: $primary-link-color;
-    @extend .f3, .o-100;
+a:link {
+    color: red;
 }
 
 p {
