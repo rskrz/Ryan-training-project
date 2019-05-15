@@ -12,11 +12,11 @@ h3 {
     @extend .f3, .o-90;
 }
 
-h3:link {
-    color:$primary-link-color;
+a:link {
+    color: red;
 }
 
 p {
     color: $secondary-text-color;
-    @extend .f5, .o-90;
+    @extend .f5, o-90;
 }

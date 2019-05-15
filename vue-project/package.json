@@ -9,6 +9,8 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@vue/cli": "^3.7.0",
+    "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "tachyons-sass": "^4.9.5",
     "vue": "^2.6.10",

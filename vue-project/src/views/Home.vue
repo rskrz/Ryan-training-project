@@ -1,19 +1,34 @@
 <template lang="pug">
   .home
-    Logo
-    HelloWorld(msg="It's alive!!!")
+    Repos(v-bind:repos="repos")
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import Logo from "@/components/Logo.vue";
+<script>
+import Repos from '@/components/Repos.vue';
+import axios from 'axios';
 
-@Component({
+export default {
+  name: 'Home',
   components: {
-    HelloWorld,
-    Logo
-  }
-})
-export default class Home extends Vue {}
+    Repos
+  },
+  data() {
+    return {
+      repos: []
+    }
+  },
+  created() {
+    const axios = require('axios')
+    axios.get('https://api.github.com/search/repositories?q=language:typescript&sort=stars&order=desc')
+      .then(response => {
+        this.repos = response.data.items
+      }
+      )
+      .catch(function(error){
+        console.log('Failure!')
+        console.log(error)
+      })
+  }  
+}
 </script>
+
