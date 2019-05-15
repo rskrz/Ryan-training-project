@@ -1,0 +1,23 @@
+$primary-text-color: #171717;
+$primary-link-color: #3241D8;
+$secondary-text-color: #454545;
+
+h1 {
+    color: $primary-text-color; // Take the variable value and use as text color.
+    @extend .f1, .o-90; // Import other SASS classes written into this SASS class.
+  }
+
+h3 {
+    color: $primary-text-color;
+    @extend .f3, .o-90;
+}
+
+h3:link {
+    color: $primary-link-color;
+    @extend .f3, .o-100;
+}
+
+p {
+    color: $secondary-text-color;
+    @extend .f5, o-90;
+}

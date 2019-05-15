@@ -8,22 +8,24 @@
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+const axios = require('axios')
+axios.get('https://swapi.co/api/people/1/')
+  .then(function(response){
+    console.log('Success!')
+    console.log(response)
+  })
+  .catch(function(error){
+    console.log('Failure!')
+    console.log(error)
+  })
+export default {
+  
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+</script>
+
+<style scoped lang="scss">
+// Some SASS code must exist below in order to include all _global SASS code. 
+#app {  
 }
 </style>
