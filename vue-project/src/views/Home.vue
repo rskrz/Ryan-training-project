@@ -1,12 +1,14 @@
 <template lang="pug">
-  div(id="Home").flex.flex-column.justify-center.items-center
-    Header
-    button(type="button" v-on:click="refresh").reset
-      img(src="../assets/refresh.png").w3.h-auto.flex.justify-center
-    p {{ time }} minutes old 
+  div(id="Home").flex.flex-column.items-center-ns
+    div.flex.flex-column.justify-center.items-center
+      Header.tc.tl-ns
+      button(type="button" v-on:click="refresh").reset
+        img(src="../assets/refresh.png").w3.h-auto.flex.justify-center
+      p {{ time }} minutes old 
     Repos(v-bind:repos="repos")
-    h3(v-if="isError") {{error_status}}
-    img(v-if="repos.length==0" src="../assets/github.png").loader
+    div.flex.flex-column.justify-center.items-center.tc.tl-ns
+      h3(v-if="isError") {{error_status}}
+      img(v-if="repos.length==0" src="../assets/github.png").loader
 </template>
 
 <script>
