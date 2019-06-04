@@ -1,13 +1,13 @@
 configureWebpack: {
-    module: {
+  module: {
       rules: [
         {
           test: /\.pug$/,
-          loader: "pug-plain-loader"
+          loader: "pug-plain-loader",
         }
       ]
-    }
   }
+}
 const path = require("path");
 
 module.exports = {
@@ -18,5 +18,9 @@ module.exports = {
         path.resolve(__dirname, './src/styles/_global.scss')
       ]
     }
+  },
+  devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true
   }
 };

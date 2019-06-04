@@ -47,4 +47,15 @@
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
-  }
+}
+
+.navbar {
+    @extend .h3, .w-100, .flex, .flex-row, .justify-end, .items-center, .f3, .avenir;
+    background-color: $primary-navbar-color;
+    color: $background-color;
+}
+
+.loginbutton {
+    @extend .br3;
+    background-color: $primary-navbar-color;
+}

@@ -1,11 +1,11 @@
 <template lang="pug">
-    div(id="Repos").w-50-ns.w-100.border
+    div(id="Repos").w-50-ns.w-100.border.w-90-m
         div(v-for="repo in repos" :key="repo.id")
             RepoItem(:repo="repo")
 </template>
 
 <script>
-import RepoItem from '@/components/RepoItem'
+import RepoItem from './RepoItem.vue'
 export default {
     name: 'Repos',
     components: {

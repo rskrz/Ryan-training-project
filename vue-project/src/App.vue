@@ -1,12 +1,19 @@
 <template lang="pug">
-  div(id="app")
-    router-view
+    div(id="app")
+        NavBar
+        router-view
+        vue-progress-bar
 </template>
 
 <script>
+import NavBar from "@/components/NavBar.vue"
 export default {
-  name: 'app'
+    name: 'app',
+    components: {
+        NavBar
+    }
 }
+
 </script>
 
 <style scoped lang="scss">

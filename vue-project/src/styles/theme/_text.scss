@@ -1,20 +1,25 @@
 @import './color.scss';
 
 h1 {
-  color: $primary-text-color; // Take the variable value and use as text color.
-  @extend .f1, .o-90, .sans-serif; // Import other SASS classes written into this SASS class.
+    color: $primary-text-color; // Take the variable value and use as text color.
+    @extend .f1, .o-90, .sans-serif; // Import other SASS classes written into this SASS class.
 }
 
 h3 {
-  color: $primary-text-color;
-  @extend .f3, .o-90, .sans-serif;
-  a:link {
-    color: $primary-link-color;
-    @extend .o-100, .no-underline;
-  }
+    color: $primary-text-color;
+    @extend .f3, .o-90, .sans-serif;
+    a:link {
+        color: $primary-link-color;
+        @extend .o-100, .no-underline;
+    }
 }
 
 p {
-  color: $secondary-text-color;
-  @extend .f5, .o-90, .sans-serif;
+    color: $secondary-text-color;
+    @extend .f5, .o-90, .sans-serif;
+}
+
+router-link {
+    color: $background-color;
+    @extend .f3;
 }
