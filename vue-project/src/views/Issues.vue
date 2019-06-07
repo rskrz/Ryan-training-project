@@ -66,12 +66,12 @@ export default {
                     this.clearTimer()
                 })
                 .catch(error=> {
-					if(error.response){
+					if(error.response) {
 						this.fail()
 						console.log(error.response)
-						this.isError = true
+                        this.isError = true
 						this.error_status = "ERROR " + error.response.status + " - " + error.response.statusText
-					}
+                    }
 				})
         },
         startTimer: function() {

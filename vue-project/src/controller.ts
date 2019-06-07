@@ -1,24 +1,24 @@
 import { AxiosInstance } from 'axios'
 
-interface Repo {
+export interface Repo {
     name: string 
     description: string 
 }
 
-interface Token {
+export interface Token {
     name: string
 }
-interface GetReposResult {
+export interface GetReposResult {
     repos?: Repo[]
     error?: Error
 }
 
-interface GetTokenResult {
+export interface GetTokenResult {
     token?: Token
     error?: Error
 }
 
-interface Service {
+export interface Service {
     getRepos(url: string): Promise<GetReposResult>
     getIssues(url: string, headers: object): Promise<GetReposResult>
     postCode(url: string, params: object, headers: object): Promise<GetTokenResult>
@@ -44,7 +44,7 @@ export class AppService implements Service {
     postCode(url: string, params: object, headers: object): Promise<GetTokenResult>{
         return this.axios.post(url,params,headers).then((response: any)=>{
             return Promise.resolve({
-                token: response
+                token: response.data
             })
         })
     }
@@ -60,11 +60,14 @@ export class Controller {
         return this.service.getRepos("https://api.github.com/search/repositories?q=language:typescript&sort=stars&order=desc")
             .then((result: any) => {
                 if (result.error) {
-                    return Promise.resolve(result.error)
-                } 
+                    return result.error
+                }
+                if(!result.repos || result.repos.length===0) {
+                    return Error('No trending repos')
+                }
                 else {
                     let repos = result.repos!
-                    return Promise.resolve(repos)
+                    return repos
                 }
             })
     }
@@ -74,11 +77,14 @@ export class Controller {
             { headers: {'Authorization': 'token '+token}})
             .then((result: any) => {
                 if (result.error) {
-                    return Promise.resolve(result.error)
-                } 
+                    return result.error
+                }
+                if(!result.repos || result.repos.length===0) {
+                    return Error('User has no issues')
+                }  
                 else {
                     let repos = result.repos!
-                    return Promise.resolve(repos)
+                    return repos
                 }
             })
     }
@@ -90,11 +96,11 @@ export class Controller {
             )
             .then((result: any)=>{
                 if (result.error) {
-                    return Promise.resolve(result.error)
-                } 
+                    return result.error
+                }
                 else {
                     let gettoken = result.token!
-                    return Promise.resolve(gettoken)
+                    return gettoken
                 }
             })
     }

@@ -33,11 +33,11 @@ export default {
                 .then(response=>{
                     console.log(response)
                     this.$store.commit('logIn', {value: true})
-                    if(response.data.body.access_token){
-                        this.$store.commit('changeToken', {value: response.data.body.access_token})
+                    if(response.body.access_token){
+                        this.$store.commit('changeToken', {value: response.body.access_token})
                         this.$store.commit('changePage', {value: state})
-                        console.log(this.$store.state.token)
-                        console.log('/'+this.$store.state.lastPage)
+                        //console.log(this.$store.state.token)
+                        //console.log('/'+this.$store.state.lastPage)
                         this.$router.replace('/'+this.$store.state.lastPage)
                     }    
                 })
