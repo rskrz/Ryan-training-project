@@ -6,47 +6,18 @@
                 h3.tc.tl-ns It should only be a second or two...
 </template>
 
-<script>
+<script lang='ts'>
 import axios from 'axios'
 import router from '../router'
 import { AppService, Controller } from '@/controller.ts';
-export default {
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
     name: 'Loading',
     router,
-    data () {
-        return {
-            controller: new Controller(new AppService(axios.create({})))
-        }
-    },
-    methods: {
-        start: function () {
-            this.$Progress.start()
-        },
-        finish: function () {
-            this.$Progress.finish()
-        },
-        fail: function () {
-            this.$Progress.fail()
-        },
-        getToken: function(code,state) {
-            this.controller.postCode(code, state)
-                .then(response=>{
-                    console.log(response)
-                    this.$store.commit('logIn', {value: true})
-                    if(response.body.access_token){
-                        this.$store.commit('changeToken', {value: response.body.access_token})
-                        this.$store.commit('changePage', {value: state})
-                        //console.log(this.$store.state.token)
-                        //console.log('/'+this.$store.state.lastPage)
-                        this.$router.replace('/'+this.$store.state.lastPage)
-                    }    
-                })
-                .catch(error=> {
-					console.log(error)
-				})
-        }
-    },
-    created(){
+})
+export default class Loading extends Vue {
+    controller = new Controller(new AppService(axios.create({})))
+    created(): void {
         const urlParams = new URLSearchParams(window.location.search)
         const code = urlParams.get('code')
         const state = urlParams.get('state')
@@ -54,7 +25,21 @@ export default {
             this.getToken(code, state)
         }
     }
-} 
+    getToken(code, state): void {
+        this.controller.postCode(code, state)
+            .then(response=>{
+                this.$store.commit('logIn', {value: true})
+                if(response.body.access_token){
+                    this.$store.commit('changeToken', {value: response.body.access_token})
+                    this.$store.commit('changePage', {value: state})
+                    this.$router.replace('/'+this.$store.state.lastPage)
+                }    
+            })
+            .catch(error=> {
+                console.log(error)
+            })
+    }
+}
 </script>
 
 <style scoped lang='scss'>

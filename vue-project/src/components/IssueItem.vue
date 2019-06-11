@@ -7,10 +7,13 @@
                 p.mt0.db {{ issue.user.login }} / {{ issue.repository.name }}
 </template>
 
-<script>
-export default {
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
     name: 'IssueItem',
     props: ['issue']
+})
+export default class IssueItem extends Vue {
 }
 </script>
 

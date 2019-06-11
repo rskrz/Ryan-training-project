@@ -6,9 +6,12 @@
         //router-link(to="../Loading").white.mr5 Loading
 </template>
 
-<script>
-export default {
-    name:"NavBar"
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
+    name:'NavBar'
+})
+export default class NavBar extends Vue {
 }
 </script>
 

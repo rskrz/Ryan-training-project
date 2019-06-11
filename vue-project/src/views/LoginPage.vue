@@ -9,14 +9,15 @@
                 p.w-40-l.w-60-m.w-100.tl-ns.tc We do not store or share your personal information. We ask the minimum permissions required for the application to work.
 </template>
 
-<script>
+<script lang='ts'>
 import axios from 'axios';
-export default {
-    name:"LoginPage",
-    methods: {
-        login: function() {
-            window.location.href="https://github.com/login/oauth/authorize?client_id=c3bcbb2fc1175dae2d26&response_type=code&scope=repo&state="+this.$store.state.lastPage
-        }
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
+    name: 'LoginPage'
+})
+export default class LoginPage extends Vue{
+    login(): void {
+        window.location.href="https://github.com/login/oauth/authorize?client_id=c3bcbb2fc1175dae2d26&response_type=code&scope=repo&state="+this.$store.state.lastPage
     }
 }
 </script>

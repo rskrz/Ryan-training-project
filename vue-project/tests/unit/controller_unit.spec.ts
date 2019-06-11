@@ -1,5 +1,4 @@
 import {Controller, Service, GetReposResult, GetTokenResult, Token, AppService} from '@/controller.ts'
-import axios from 'axios';
 
 describe("AppService unit tests", () => {
     describe("getRepos()", () => {

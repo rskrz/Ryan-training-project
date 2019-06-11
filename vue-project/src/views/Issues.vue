@@ -17,80 +17,64 @@
                 img(v-if="issues.length==0" src="../assets/github.png").loader
 </template>
 
-<script>
+<script lang='ts'>
 import IssueList from '@/components/IssueList.vue';
 import axios from 'axios';
 import { AppService, Controller } from '@/controller.ts';
-
-export default {
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
     name: 'Issues',
     components: {
         IssueList
-    },
-    data() {
-        return {
-            issues: [],
-            time: 0,
-            repeat: true,
-            isError: false,
-            error_status: '',
-            controller: new Controller(new AppService(axios.create({})))
-        }
-    },
-    created() {
-        this.refresh()
-        this.startTimer()
-    },
-    methods: {
-        start: function () {
-            this.$Progress.start()
-        },
-        finish: function () {
-            this.$Progress.finish()
-        },
-        fail: function () {
-            this.$Progress.fail()
-        },
-        logout: function () {
-            this.$store.commit('logIn', {value: false})
-            //this.$store.commit('changeToken', {value: ''})
-        },
-        refresh: function() {
-            this.start()
-			this.repos = []
-            this.controller.getIssues(this.$store.state.token)
-                .then(response=>{
-                    this.finish()
-                    this.issues = response
-                    this.time = 0
-                    this.clearTimer()
-                })
-                .catch(error=> {
-					if(error.response) {
-						this.fail()
-						console.log(error.response)
-                        this.isError = true
-						this.error_status = "ERROR " + error.response.status + " - " + error.response.statusText
-                    }
-				})
-        },
-        startTimer: function() {
-            this.time = this.time+1
-            var timer = setTimeout(() => {
-            this.startTimer()
-            }, 60*1000);
-        },
-        clearTimer: function() {
-            clearTimeout(timer)
-            this.startTimer()
-        }
-    },
+    }
+})
+export default class Issues extends Vue {
+    timer: any
+    issues: Issue[] = []
+    time: number = 0
+    repeat: boolean = true
+    isError: boolean = false
+    error_status: string = ''
+    controller = new Controller(new AppService(axios.create({})))
     beforeCreate() {
         if(this.$store.state.loggedIn == false){
             this.$store.commit('changePage', {value: 'Issues'})
             window.location.href = "./#/LoginPage"
             alert('You need to login!')
         }
+    }
+    created(): void {
+        this.refresh()
+    }
+    refresh(): void {
+        this.$Progress.start()
+        this.repos = []
+        this.controller.getIssues(this.$store.state.token)
+            .then(response=>{
+                this.$Progress.finish()
+                this.issues = response
+                this.time = -1
+                this.clearTimer()
+            })
+            .catch(error=> {
+                if(error.response) {
+                    this.$Progress.fail()
+                    console.log(error.response)
+                    this.isError = true
+                    this.error_status = "ERROR " + error.response.status + " - " + error.response.statusText
+                }
+            })
+    }
+    startTimer(): void {
+        this.time = this.time+1
+        var timer = setTimeout(() => { this.startTimer() }, 60*1000);
+    }
+    clearTimer(): void {
+        clearTimeout(this.timer)
+        this.startTimer()
+    }
+    logout(): void {
+        this.$store.commit('logIn', {value: false})
     }
 }
 </script>

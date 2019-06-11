@@ -4,14 +4,19 @@
             IssueItem(:issue="issue")
 </template>
 
-<script>
+<script lang='ts'>
 import IssueItem from './IssueItem.vue'
-export default {
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
     name: 'IssueList',
     components: {
         IssueItem
     },
-    props: ["issues"]
+    props: {
+        issues: Array
+    }
+})
+export default class IssueList extends Vue{
 }
 </script>
 

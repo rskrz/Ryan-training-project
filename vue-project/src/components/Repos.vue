@@ -4,14 +4,20 @@
             RepoItem(:repo="repo")
 </template>
 
-<script>
+<script lang='ts'>
 import RepoItem from './RepoItem.vue'
-export default {
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
     name: 'Repos',
     components: {
         RepoItem
     },
-    props: ["repos"]
+    props: {
+        repos: Array
+    }
+})
+export default class Repos extends Vue {
 }
 </script>
 

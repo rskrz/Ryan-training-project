@@ -1,5 +1,5 @@
 <template lang="pug">
-    div(id="app")
+    div(id="App")
         NavBar
         router-view
         vue-progress-bar
@@ -7,17 +7,19 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue"
-export default {
-    name: 'app',
+import { Component, Vue } from 'vue-property-decorator'
+@Component({
+    name: 'App',
     components: {
         NavBar
     }
+})
+export default class App extends Vue {
 }
 
 </script>
 
 <style scoped lang="scss">
-// Some SASS code must exist below in order to include all _global SASS code. 
-#app {
+#App {
 }
 </style>

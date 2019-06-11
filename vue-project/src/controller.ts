@@ -8,6 +8,7 @@ export interface Repo {
 export interface Token {
     name: string
 }
+
 export interface GetReposResult {
     repos?: Repo[]
     error?: Error
