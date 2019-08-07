@@ -14,19 +14,7 @@ jobs:
   include:
     - stage: danger
       script: danger --fail-on-errors=true
-    - stage: bots
-      script: danger --fail-on-errors=true
-    - stage: tests
-      script: run-tests
-    - stage: deploy
-      script: run-deployment
 
 stages:
   - name: danger
     if: type IN (pull_request)
-  - name: tests 
-    if: type IN (pull_request, push) AND tag IS blank
-  - name: bots
-    if: type IN (pull_request)
-  - name: deploy
-    if: tag IS present
