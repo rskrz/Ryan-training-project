@@ -5,6 +5,7 @@ env:
   global:    
     # DANGER_GITHUB_API_TOKEN
 install:
+  - gem install bundler
   - bundle install
 cache:
   bundler: true
