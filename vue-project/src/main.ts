@@ -11,8 +11,8 @@ Vue.use(VueProgressBar, {
 })
 
 Vue.config.productionTip = false;
-
-new Vue({
+  
+export default new Vue({
     router,
     store,
     render: h => h(App)

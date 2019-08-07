@@ -15,7 +15,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
     name: 'RepoItem',
     props: {
-        repo: Array
+        repo: Object
     }
 })
 

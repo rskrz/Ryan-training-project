@@ -12,7 +12,7 @@ export default new Router({
         {
             path: "/Trending",
             name: "Trending",
-            component: Trending
+            component: Trending,
         },
         {
             path: "/Issues",

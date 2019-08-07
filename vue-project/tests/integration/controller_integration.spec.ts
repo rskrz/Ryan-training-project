@@ -1,4 +1,4 @@
-import {Controller, Service, AppService, GetReposResult, GetTokenResult, Token} from '@/controller.ts'
+import { Controller, AppService } from '@/controller.ts'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
@@ -13,8 +13,8 @@ describe("AppService unit tests", () => {
                 .reply(200, trending)
                 
             let controller = new Controller(new AppService(axios.create({})))
-            controller.getTrendingRepos().then(response=>{
-                expect(response).toEqual(trending.items)
+            controller.getTrendingRepos().then(result=>{
+                expect(result.repos).toEqual(trending.items)
             })
         })
         it("should return empty", () =>{
@@ -25,8 +25,8 @@ describe("AppService unit tests", () => {
                 .reply(200, empty)
                 
             let controller = new Controller(new AppService(axios.create({})))
-            controller.getTrendingRepos().then(error=>{
-                expect(error).toEqual(Error('No trending repos'))
+            controller.getTrendingRepos().then(result=>{
+                expect(result.error).toEqual(Error('No trending repos'))
             })
         })
     })
@@ -39,8 +39,8 @@ describe("AppService unit tests", () => {
                 .reply(200, issues,{ headers: {'Authorization': 'token'}})
                 
             let controller = new Controller(new AppService(axios.create({})))
-            controller.getIssues('').then(response=>{
-                expect(response).toEqual(issues)
+            controller.getIssues('').then(result=>{
+                expect(result.repos).toEqual(issues)
             })
         })
         it("should return error", ()=>{
@@ -50,8 +50,8 @@ describe("AppService unit tests", () => {
                 .reply(200, [],{ headers: {'Authorization': 'token'}})
                 
             let controller = new Controller(new AppService(axios.create({})))
-            controller.getIssues('').then(response=>{
-                expect(response).toEqual(Error('User has no issues'))
+            controller.getIssues('').then(result=>{
+                expect(result.error).toEqual(Error('User has no issues'))
             })
         })
     })
@@ -69,7 +69,7 @@ describe("AppService unit tests", () => {
                     { headers: {'Content-Type': 'application/json'}}
                     )
             let controller = new Controller(new AppService(axios.create({})))
-            controller.postCode('','').then((response:any)=>{
+            controller.postCode('','').then(response=>{
                 expect(response).toEqual(result)
             })
         })

@@ -6,11 +6,11 @@
                 h3.tc.tl-ns It should only be a second or two...
 </template>
 
-<script lang='ts'>
-import axios from 'axios'
-import router from '../router'
-import { AppService, Controller } from '@/controller.ts';
-import { Component, Vue } from 'vue-property-decorator'
+<script lang="ts">
+import axios from "axios";
+import router from "../router";
+import { AppService, Controller } from "@/controller.ts";
+import { Component, Vue } from "vue-property-decorator";
 @Component({
     name: 'Loading',
     router,
@@ -25,15 +25,16 @@ export default class Loading extends Vue {
             this.getToken(code, state)
         }
     }
-    getToken(code, state): void {
+    getToken(code:any, state:any): void {
         this.controller.postCode(code, state)
             .then(response=>{
                 this.$store.commit('logIn', {value: true})
+                console.log(response)
                 if(response.body.access_token){
                     this.$store.commit('changeToken', {value: response.body.access_token})
                     this.$store.commit('changePage', {value: state})
                     this.$router.replace('/'+this.$store.state.lastPage)
-                }    
+                }
             })
             .catch(error=> {
                 console.log(error)

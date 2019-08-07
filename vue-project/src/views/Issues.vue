@@ -10,10 +10,10 @@
                 .flex.flex-column.self-end-ns.items-center.mt0    
                     button(type="button" v-on:click="refresh").reset
                         img(src="../assets/refresh.png").w2.h-auto.flex.justify-center
-                    p.mt0 {{ time }} minutes old 
+                    p.mt0.time {{ time }} minutes old 
             IssueList(v-bind:issues="issues")
             .flex.flex-column.justify-center.items-center.tc.tl-ns
-                h3(v-if="isError") {{error_status}}
+                h3(v-if="isError").err {{error_status}}
                 img(v-if="issues.length==0" src="../assets/github.png").loader
 </template>
 
@@ -30,7 +30,7 @@ import { Component, Vue } from 'vue-property-decorator'
 })
 export default class Issues extends Vue {
     timer: any
-    issues: Issue[] = []
+    issues: Repo[] | undefined = []
     time: number = 0
     repeat: boolean = true
     isError: boolean = false
@@ -47,21 +47,21 @@ export default class Issues extends Vue {
         this.refresh()
     }
     refresh(): void {
-        this.$Progress.start()
-        this.repos = []
+        //this.$Progress.start()
+        this.issues = []
         this.controller.getIssues(this.$store.state.token)
-            .then(response=>{
-                this.$Progress.finish()
-                this.issues = response
+            .then(result=>{
+                //this.$Progress.finish()
+                this.issues = result.repos
                 this.time = -1
                 this.clearTimer()
             })
             .catch(error=> {
                 if(error.response) {
-                    this.$Progress.fail()
+                    //this.$Progress.fail()
                     console.log(error.response)
                     this.isError = true
-                    this.error_status = "ERROR " + error.response.status + " - " + error.response.statusText
+                    this.error_status = `Error ${error.response.status} - ${error.response.statusText}`
                 }
             })
     }
