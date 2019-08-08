@@ -5,11 +5,13 @@ env:
   global:    
     # DANGER_GITHUB_API_TOKEN
 install:
+  - npm install
   - gem install bundler
   - bundle install
 cache:
   bundler: true
-  
+  directories:
+    - node_modules
 jobs:
   include:
     - stage: danger
