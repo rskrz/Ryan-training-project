@@ -14,7 +14,11 @@ jobs:
   include:
     - stage: danger
       script: danger --fail-on-errors=true
+    - stage: tests
+      script: npm run tests
 
 stages:
   - name: danger
     if: type IN (pull_request)
+  - name: tests
+    if: type IN (pull_request, push) AND tag IS blank
