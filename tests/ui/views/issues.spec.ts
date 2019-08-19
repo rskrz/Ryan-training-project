@@ -39,7 +39,6 @@ describe('Issues.vue', () => {
             .rebind<Controller>(TYPE.Controller)
             .toValue(repositoryControllerMock)
     }
-
     it('should show loading img', async () => {
         let state = {
             token: () => 'abc'
@@ -62,6 +61,7 @@ describe('Issues.vue', () => {
         let store = new Vuex.Store({
             state
         })
+        
         const wrapper = new IssuesWrapper(mount(Issues, {store, localVue}))
         wrapper.refreshButton.trigger('click')
         await flushpromises()
@@ -69,6 +69,7 @@ describe('Issues.vue', () => {
         expect(wrapper.errorMsg.exists()).toBe(false)
         expect(wrapper.issueList.exists()).toBe(true)
     })
+    
     it("expect to see empty repo error message", async () => {
         let state = {
             token: () => 'abc'
@@ -91,7 +92,6 @@ describe('Issues.vue', () => {
 
         await flushpromises()
         
-      
         expect(wrapper.errorMsg.exists()).toBe(true)
         expect(wrapper.issueList.exists()).toBe(false)
     })
