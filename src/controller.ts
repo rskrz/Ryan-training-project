@@ -98,6 +98,7 @@ class Controller {
             return Promise.resolve(result)
         })
     }
+    
     postCode(code: string, state: string): Promise<Token> {
         return this.service.postCode(
             'https://training-github-app-login.skrz.now.sh/auth',

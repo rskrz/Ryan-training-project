@@ -14,66 +14,70 @@
 			img(v-if="repos.length==0" src="../assets/github.png").loader
 </template>
 
-<script lang='ts'>
-import Repos from '@/components/Repos.vue'
-import axios from 'axios'
-import "../controller"
-import { AppService, Controller } from '@/controller'
-import { Component, Vue } from 'vue-property-decorator'
-import {container} from "../../services/container"
-import {TYPE} from "../../services/types"
+<script lang="ts">
+import Repos from "@/components/Repos.vue";
+import axios from "axios";
+import "../controller";
+import { AppService, Controller } from "@/controller";
+import { Component, Vue } from "vue-property-decorator";
+import { container } from "../../services/container";
+import { TYPE } from "../../services/types";
 
 @Component({
-	name: 'Trending',
-	components: {
-		Repos
-	}
+  name: "Trending",
+  components: {
+    Repos
+  }
 })
-
 export default class Trending extends Vue {
-	timer: any
-	repos: Repo[] | undefined = []
-	time: number = 0
-	repeat: boolean = true
-	isError: boolean = false
-	error_status: string = ''
-	controller = new Controller(new AppService(axios.create({})))
-	created(): void {
-		this.refresh()
-		//this.$store.commit('changePage', {value: 'Trending'})
-	}
-	refresh(): void {
-		//this.$Progress.start()
-		this.repos = []
-		this.controller.getTrendingRepos()
-			.then((response)=>{
-				//this.$Progress.finish()
-				this.repos = response.repos
-				this.time = -1
-				this.clearTimer()
-			})
-			.catch(error=> {
-				console.log(error)
-				if(error.response){
-					//this.$Progress.fail()
-					console.log(error.response)
-					this.isError = true
-					this.error_status = `Error ${error.response.status} - ${error.response.statusText}`
-				}
-			})
-	}
-	startTimer(): void {
-		this.time = this.time+1
-		this.timer = setTimeout(() => { this.startTimer() }, 60*1000) 
-	}
-	clearTimer(): void {
-		clearTimeout(this.timer)
-		this.startTimer()
-	}
+  timer: any;
+  repos: Repo[] | undefined = [];
+  time: number = 0;
+  repeat: boolean = true;
+  isError: boolean = false;
+  error_status: string = "";
+  controller = new Controller(new AppService(axios.create({})));
+  created(): void {
+    this.refresh();
+    //this.$store.commit('changePage', {value: 'Trending'})
+  }
+  refresh(): void {
+    //this.$Progress.start()
+    this.repos = [];
+    this.controller
+      .getTrendingRepos()
+      .then(response => {
+        //this.$Progress.finish()
+        this.repos = response.repos;
+        this.time = -1;
+        this.clearTimer();
+      })
+      .catch(error => {
+        //console.log(error)
+        if (error.response) {
+          //this.$Progress.fail()
+          //console.log(error.response)
+          this.isError = true;
+          this.error_status = `Error ${error.response.status} - ${
+            error.response.statusText
+          }`;
+        }
+      });
+  }
+  startTimer(): void {
+    this.time = this.time + 1;
+    this.timer = setTimeout(() => {
+      this.startTimer();
+    }, 60 * 1000);
+  }
+  clearTimer(): void {
+    clearTimeout(this.timer);
+    this.startTimer();
+  }
 }
 </script>
 
-<style scoped lang='scss'>
-#Trending{
+<style scoped lang="scss">
+#Trending {
 }
 </style>
