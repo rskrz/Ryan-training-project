@@ -7,7 +7,9 @@ interface Repo {
 }
 
 interface Token {
-    name: string
+    body: {
+        access_token: string
+    }
 }
 
 interface GetReposResult {
@@ -106,7 +108,7 @@ class Controller {
             { headers: {'Content-Type': 'application/json'}}
             )
             .then((result: any)=>{
-                return (result.error ? result.error : result.token)
+                return (result.error ? Promise.resolve(result.error) : Promise.resolve(result.token))
             })
     }
 }

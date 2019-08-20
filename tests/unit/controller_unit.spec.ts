@@ -228,7 +228,9 @@ describe("AppService unit tests", () => {
         }),
         it("should receive token if request successful", () => {
             let get_token: Token = {
-                name: 'one',
+                body: {
+                    access_token: 'one'
+                }
             }
 
             let tokenResult: GetTokenResult = {
@@ -247,7 +249,9 @@ describe("AppService unit tests", () => {
         })
         it("should receive error if request unsuccessful", () => {
             let get_token: Token = {
-                name: 'one',
+                body: {
+                    access_token: 'one'
+                }
             }
 
             let tokenResult: GetTokenResult = {
