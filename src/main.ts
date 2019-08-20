@@ -11,8 +11,16 @@ Vue.use(VueProgressBar, {
     thickness: '0.5em',
 })
 
+const getVariableOrThrow = (variableName: string): string => {
+    let variableValue = process.env[variableName]
+    if (!variableValue) throw new Error(`You did not define environment variable: ${variableName}`)
+    return variableValue
+  }
+  
+export const honeyBadgerApiKey: string = getVariableOrThrow("VUE_APP_HONEYBADGER_API_KEY")
+
 const config = {
-    apiKey: 'project api key',
+    apiKey: honeyBadgerApiKey,
     environment: 'production',
     revision: 'git SHA/project version'
 }

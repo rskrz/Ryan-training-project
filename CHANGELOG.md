@@ -10,9 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Firebase deployment
 - Versionfile
 - CHANGELOG.md
+- Deploy stage and job added to .travis.yml
+- Deploy script added to package.json
 
 ### Changed
 - Token interface now properly resembles actual token response
 - Loading page updated to support new token interface
 
-[0.1.0]: https://github.com/
+[0.1.0]: https://github.com/foundersclubsoftware/Ryan-training-project/compare/v0.1.0...HEAD
