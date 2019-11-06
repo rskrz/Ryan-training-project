@@ -1,7 +1,7 @@
 const path = require("path");
-
-const PurifyCSSPlugin = require("purifycss-webpack");
 const glob = require("glob-all");
+const PurgecssPlugin = require("purgecss-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   configureWebpack: {
@@ -14,10 +14,10 @@ module.exports = {
       ]
     },
     plugins: [
-      new PurifyCSSPlugin({
+      new PurgecssPlugin({
         paths: glob.sync([
-          path.join(__dirname, "src/*.html"),
-          path.join(__dirname, "src/*.js")
+          path.join(__dirname, "src/*.ts"),
+          path.join(__dirname, "src/**/*.vue")
         ]),
         minimize: true,
         purifyOptions: {
