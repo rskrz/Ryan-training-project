@@ -4,12 +4,15 @@ import router from "./router";
 import store from "./store";
 import VueProgressBar from "vue-progressbar";
 import HoneybadgerVue from "@honeybadger-io/vue";
+import LazyLoadDirective from "./directives/LazyLoadDirective";
 
 Vue.use(VueProgressBar, {
   color: "white",
   failedColor: "#874b4b",
   thickness: "0.5em"
 });
+
+Vue.directive("lazyload", LazyLoadDirective);
 
 const getVariableOrThrow = (variableName: string): string => {
   let variableValue = process.env[variableName];

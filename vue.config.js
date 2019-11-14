@@ -5,25 +5,13 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 module.exports = {
   configureWebpack: {
+    devtool: 'source-map',
     module: {
         rules: [
           {
             test: /\.pug$/,
             loader: "pug-plain-loader",
-          },
-          // {
-          //   test: /\.scss$/,
-          //   use: [
-          //     'vue-style-loader',
-          //     'css-loader',
-          //     {
-          //       loader: 'sass-loader',
-          //       options: {
-          //         // prependData: fs.readFileSync(path.resolve(__dirname, './src/styles/_global.scss'))
-          //       }
-          //     }
-          //   ]
-          // }
+          }
         ]
     },
     plugins: [
