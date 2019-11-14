@@ -6,19 +6,18 @@
         //router-link(to="../Loading").white.mr5 Loading
 </template>
 
-<script lang='ts'>
-import { Component, Vue } from 'vue-property-decorator'
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 @Component({
-    name:'NavBar'
+  name: "NavBar"
 })
-export default class NavBar extends Vue {
-}
+export default class NavBar extends Vue {}
 </script>
 
-<style lang="scss" scoped>
-#navbar{
+<style lang="scss">
+#navbar {
 }
 a.router-link-exact-active {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 </style>

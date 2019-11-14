@@ -4,7 +4,7 @@
         h3 Explore the top starred Typescript public repositories in the past 24 hours.
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 #Header {
 }
 </style>

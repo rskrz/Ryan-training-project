@@ -18,7 +18,7 @@
 import Repos from "@/components/Repos.vue";
 import axios from "axios";
 import "../controller";
-import { AppService, Controller } from "@/controller";
+import { AppService, Controller, Repo } from "@/controller";
 import { Component, Vue } from "vue-property-decorator";
 import { container } from "../../services/container";
 import { TYPE } from "../../services/types";
@@ -77,7 +77,8 @@ export default class Trending extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 #Trending {
+  background-color: red;
 }
 </style>

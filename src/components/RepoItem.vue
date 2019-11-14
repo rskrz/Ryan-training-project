@@ -10,20 +10,18 @@
                 p.mt0.db {{ repo.description }}
 </template>
 
-<script lang='ts'>
-import { Component, Vue } from 'vue-property-decorator'
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 @Component({
-    name: 'RepoItem',
-    props: {
-        repo: Object
-    }
+  name: "RepoItem",
+  props: {
+    repo: Object
+  }
 })
-
-export default class RepoItem extends Vue {
-}
+export default class RepoItem extends Vue {}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 #RepoItem {
 }
 </style>

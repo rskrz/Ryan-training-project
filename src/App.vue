@@ -6,20 +6,19 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue"
-import { Component, Vue } from 'vue-property-decorator'
-@Component({
-    name: 'App',
-    components: {
-        NavBar
-    }
-})
-export default class App extends Vue {
-}
+import NavBar from "@/components/NavBar.vue";
+import { Component, Vue } from "vue-property-decorator";
 
+@Component({
+  name: "App",
+  components: {
+    NavBar
+  }
+})
+export default class App extends Vue {}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 #App {
 }
 </style>

@@ -1,1 +1,1 @@
-declare module '@honeybadger-io/vue';
+declare module "@honeybadger-io/vue";
