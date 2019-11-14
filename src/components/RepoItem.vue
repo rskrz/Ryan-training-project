@@ -1,7 +1,7 @@
 <template lang="pug">
     div(id="RepoItem")
-        .flex.items-center.pa3(v-lazyload)
-            img(:data-url="repo.owner.avatar_url").w4.h4.dib.br3
+        .flex.items-center.pa3            
+            v-lazy-image(:src="repo.owner.avatar_url" :src-placeholder="require('../assets/github.png')").w4.h4.dib.br3
             .dib-ns.ml3.mb0.mt0
                 h3.mt0.mb2.db
                     a(:href="repo.owner.html_url") {{ repo.owner.login }} 
