@@ -20,7 +20,7 @@
 <script lang="ts">
 import IssueList from "@/components/IssueList.vue";
 import axios from "axios";
-import { AppService, Controller } from "@/controller.ts";
+import { AppService, Controller, Repo } from "@/controller.ts";
 import { Component, Vue } from "vue-property-decorator";
 @Component({
   name: "Issues",

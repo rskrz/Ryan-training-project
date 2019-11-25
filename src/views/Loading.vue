@@ -30,9 +30,9 @@ export default class Loading extends Vue {
       .postCode(code, state)
       .then(response => {
         this.$store.commit("logIn", { value: true });
-        console.log(response);
+        //console.log(response);
         if (response.body) {
-          console.log(response.body);
+          //console.log(response.body);
           this.$store.commit("changeToken", {
             value: response.body.access_token
           });
@@ -41,7 +41,7 @@ export default class Loading extends Vue {
         }
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
   }
 }

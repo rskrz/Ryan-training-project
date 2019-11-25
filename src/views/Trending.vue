@@ -6,19 +6,18 @@
 				h3.mb0.tc.tl-ns Explore the top starred Typescript public repositories in the past 24 hours.
 			.flex.flex-column.self-end-ns.items-center.mt0
 				button(type="button" @click="refresh").reset
-					img(src="../assets/refresh.png").w2.h-auto.flex.justify-center
+					img(src="../assets/refresh.png" alt="Refresh").w2.h-auto.flex.justify-center
 				p.mt0.time {{ time }} minutes old 
 		Repos(v-bind:repos="repos")
 		.flex.flex-column.justify-center.items-center.tc.tl-ns
 			h3(v-if="isError").err {{error_status}}
-			img(v-if="repos.length==0" src="../assets/github.png").loader
+			img(v-if="repos.length==0" src="../assets/github.png" alt="Loading...").loader
 </template>
 
 <script lang="ts">
 import Repos from "@/components/Repos.vue";
 import axios from "axios";
-import "../controller";
-import { AppService, Controller } from "@/controller";
+import { AppService, Controller, Repo } from "@/controller";
 import { Component, Vue } from "vue-property-decorator";
 import { container } from "../../services/container";
 import { TYPE } from "../../services/types";

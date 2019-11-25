@@ -123,9 +123,17 @@ class RepositoryControllerMockWrapper{
         this.controller.getTrendingRepos = this.getTrendingRepos
         return this.controller
     }
-    trending = require("../tests/integration/trending_repos.json")
+    //trending = require("../tests/integration/trending_repos.json")
     getReposMock() {
-        return this.trending
+        return {
+            "total_count": 748215,
+            "incomplete_results": false,
+            "items": [
+                {
+                    "id": 41881900
+                }
+            ]
+        }
     }
 }
 
