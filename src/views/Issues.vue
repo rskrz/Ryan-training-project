@@ -1,20 +1,20 @@
 <template lang="pug">
-    div
-        h3.flex.justify-end.mr5
-                a(href="./#/" v-on:click="logout") Logout
-        div(id="Home").flex.flex-column.items-center-ns
-            .flex.flex-column.justify-center.items-center.w-50-ns.w-100.w-75-m
-                div(id="Header").w-90.w-75-ns
-                    h1.tc.tl-l GitHub Issues
-                    h3.tc.tl-ns Issues created by you, mentioning you, or assigned to you.
-                .flex.flex-column.self-end-ns.items-center.mt0    
-                    button(type="button" v-on:click="refresh").reset
-                        img(src="../assets/refresh.png").w2.h-auto.flex.justify-center
-                    p.mt0.time {{ time }} minutes old 
-            IssueList(v-bind:issues="issues")
-            .flex.flex-column.justify-center.items-center.tc.tl-ns
-                h3(v-if="isError").err {{error_status}}
-                img(v-if="issues.length==0" src="../assets/github.png").loader
+  div
+    h3.flex.justify-end.mr5
+      a(href="./#/" v-on:click="logout") Logout
+    div(id="Home").flex.flex-column.items-center-ns
+      .flex.flex-column.justify-center.items-center.w-50-ns.w-100.w-75-m
+        div(id="Header").w-90.w-75-ns
+          h1.tc.tl-l GitHub Issues
+          h3.tc.tl-ns Issues created by you, mentioning you, or assigned to you.
+        .flex.flex-column.self-end-ns.items-center.mt0    
+          button(type="button" v-on:click="refresh").reset
+            img(src="../assets/refresh.png").w2.h-auto.flex.justify-center
+          p.mt0.time {{ time }} minutes old 
+      IssueList(v-bind:issues="issues")
+      .flex.flex-column.justify-center.items-center.tc.tl-ns
+        h3(v-if="isError").err {{error_status}}
+        img(v-if="issues.length==0" src="../assets/github.png").loader
 </template>
 
 <script lang="ts">

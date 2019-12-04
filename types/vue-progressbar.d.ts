@@ -1,1 +1,1 @@
-declare module 'vue-progressbar';
+declare module "vue-progressbar";

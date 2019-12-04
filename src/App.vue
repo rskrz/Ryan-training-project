@@ -1,22 +1,20 @@
 <template lang="pug">
-    div(id="App")
-        NavBar
-        router-view
-        vue-progress-bar
+  div(id="App")
+    NavBar
+    router-view
+    vue-progress-bar
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue"
-import { Component, Vue } from 'vue-property-decorator'
+import NavBar from "@/components/NavBar.vue";
+import { Component, Vue } from "vue-property-decorator";
 @Component({
-    name: 'App',
-    components: {
-        NavBar
-    }
+  name: "App",
+  components: {
+    NavBar
+  }
 })
-export default class App extends Vue {
-}
-
+export default class App extends Vue {}
 </script>
 
 <style scoped lang="scss">

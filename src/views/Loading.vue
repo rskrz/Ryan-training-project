@@ -1,9 +1,9 @@
 <template lang="pug">
-    div(id="Loading").flex.flex-column.items-center-ns
-        .flex.flex-column.justify-center.items-center.w-50-ns.w-100.w-75-m
-            div(id="Header").w-90.w-75-ns
-                h1.tc.tl-l Finishing GitHub login
-                h3.tc.tl-ns It should only be a second or two...
+  div(id="Loading").flex.flex-column.items-center-ns
+    .flex.flex-column.justify-center.items-center.w-50-ns.w-100.w-75-m
+      div(id="Header").w-90.w-75-ns
+        h1.tc.tl-l Finishing GitHub login
+        h3.tc.tl-ns It should only be a second or two...
 </template>
 
 <script lang="ts">

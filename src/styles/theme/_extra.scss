@@ -1,61 +1,61 @@
 @import './color.scss';
 
 .loader {
-    width: 200px;
-    height: auto;
-    animation: pulse 1s linear infinite;
+  width: 200px;
+  height: auto;
+  animation: pulse 1s linear infinite;
 }
 
 @keyframes pulse {
-    0% { filter: opacity(0%); }
-    50% { filter: opacity(50%); }
-    100% { filter: opacity(0%); }
+  0% { filter: opacity(0%); }
+  50% { filter: opacity(50%); }
+  100% { filter: opacity(0%); }
 }
 
 .border {
-    outline: 0.1px solid $border-color;
+  outline: 0.1px solid $border-color;
 }
 
 .reset {
-    @extend .pa3, .bg-white, .br-pill;
-    border: none;
-    outline: none;
-    :hover {
-        animation: spin 5s linear infinite;
-    }
+  @extend .pa3, .bg-white, .br-pill;
+  border: none;
+  outline: none;
+  :hover {
+    animation: spin 5s linear infinite;
+  }
 }
 
 @keyframes colorq {
-    0% { filter: brightness(0%); }
-    100% { filter: brightness(100%); }
+  0% { filter: brightness(0%); }
+  100% { filter: brightness(100%); }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 
 .overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: block; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
 }
 
 .navbar {
-    @extend .h3, .w-100, .flex, .flex-row, .justify-end, .items-center, .f3, .avenir;
-    background-color: $primary-navbar-color;
-    color: $background-color;
+  @extend .h3, .w-100, .flex, .flex-row, .justify-end, .items-center, .f3, .avenir;
+  background-color: $primary-navbar-color;
+  color: $background-color;
 }
 
 .loginbutton {
-    @extend .br3;
-    background-color: $primary-navbar-color;
+  @extend .br3;
+  background-color: $primary-navbar-color;
 }
