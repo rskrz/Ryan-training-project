@@ -7,16 +7,16 @@
 			.flex.flex-column.self-end-ns.items-center.mt0
 				button(type="button" @click="refresh").reset
 					picture.w2.h-auto.flex.justify-center
-						source(type="img/webp" srcset="../assets/refresh.webp")
-						source(type="img/png" srcset="../assets/refresh.png")
+						source(type="image/webp" srcset="../assets/refresh.webp")
+						source(type="image/png" srcset="../assets/refresh.png")
 						img(src="../assets/refresh.png" alt="Refresh")
 				p.mt0.time {{ time }} minutes old 
 		Repos(v-bind:repos="repos")
 		.flex.flex-column.justify-center.items-center.tc.tl-ns
 			h3(v-if="isError").err {{error_status}}
 			picture(v-if="repos.length==0").loader
-				source(type="img/webp" srcset="../assets/github.webp")
-				source(type="img/png" srcset="../assets/github.png")
+				source(type="image/webp" srcset="../assets/github.webp")
+				source(type="image/png" srcset="../assets/github.png")
 				img(src="../assets/github.png" alt="Loading...")
 </template>
 
