@@ -63,7 +63,6 @@ class AppService implements Service {
 
 class Controller {
   constructor(private service: Service) {}
-
   async getTrendingRepos(): Promise<GetReposResult> {
     return await this.service
       .getRepos(
@@ -78,7 +77,6 @@ class Controller {
         return Promise.resolve(result);
       });
   }
-
   async getIssues(token: string): Promise<GetReposResult> {
     return await this.service
       .getIssues("https://api.github.com/user/issues?filter=all&state=all", {
@@ -93,7 +91,6 @@ class Controller {
         return Promise.resolve(result);
       });
   }
-
   postCode(code: string, state: string): Promise<Token> {
     return this.service
       .postCode(

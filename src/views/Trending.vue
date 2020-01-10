@@ -21,6 +21,7 @@ import { AppService, Controller, Repo } from "@/controller";
 import { Component, Vue } from "vue-property-decorator";
 import { container } from "../../services/container";
 import { TYPE } from "../../services/types";
+import App from "../App.vue";
 
 @Component({
   name: "Trending",
