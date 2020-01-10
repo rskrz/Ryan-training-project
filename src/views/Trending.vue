@@ -6,12 +6,18 @@
 				h3.mb0.tc.tl-ns Explore the top starred Typescript public repositories in the past 24 hours.
 			.flex.flex-column.self-end-ns.items-center.mt0
 				button(type="button" @click="refresh").reset
-					img(src="../assets/refresh.png" alt="Refresh").w2.h-auto.flex.justify-center
+					picture.w2.h-auto.flex.justify-center
+						source(type="img/webp" srcset="../assets/refresh.webp")
+						source(type="img/png" srcset="../assets/refresh.png")
+						img(src="../assets/refresh.png" alt="Refresh")
 				p.mt0.time {{ time }} minutes old 
 		Repos(v-bind:repos="repos")
 		.flex.flex-column.justify-center.items-center.tc.tl-ns
 			h3(v-if="isError").err {{error_status}}
-			img(v-if="repos.length==0" src="../assets/github.png" alt="Loading...").loader
+			picture(v-if="repos.length==0").loader
+				source(type="img/webp" srcset="../assets/github.webp")
+				source(type="img/png" srcset="../assets/github.png")
+				img(src="../assets/github.png" alt="Loading...")
 </template>
 
 <script lang="ts">
