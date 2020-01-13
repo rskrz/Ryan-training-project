@@ -10,17 +10,17 @@
         .flex.flex-column.self-end-ns.items-center.mt0    
           button(type="button" v-on:click="refresh").reset
             picture.w2.h-auto.flex.justify-center
-						  source(type="image/webp" srcset="../assets/refresh.webp")
-						  source(type="image/png" srcset="../assets/refresh.png")
-						  img(src="../assets/refresh.png" alt="Refresh")
+              source(type="image/webp" srcset="../assets/refresh.webp")
+              source(type="image/png" srcset="../assets/refresh.png")
+              img(src="../assets/refresh.png" alt="Refresh")
           p.mt0.time {{ time }} minutes old 
       IssueList(v-bind:issues="issues")
       .flex.flex-column.justify-center.items-center.tc.tl-ns
         h3(v-if="isError").err {{error_status}}
         picture(v-if="issues.length==0").loader
-				  source(type="image/webp" srcset="../assets/github.webp")
-				  source(type="image/png" srcset="../assets/github.png")
-				  img(src="../assets/github.png" alt="Loading...")
+          source(type="image/webp" srcset="../assets/github.webp")
+          source(type="image/png" srcset="../assets/github.png")
+          img(src="../assets/github.png" alt="Loading...")
 </template>
 
 <script lang="ts">

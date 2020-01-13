@@ -25,7 +25,7 @@ describe("Trending.vue", () => {
         }
 
         get loadingImg(): Wrapper<Trending> {
-            return this.wrapper.find('img.loader') as Wrapper<Trending>
+            return this.wrapper.find('picture.loader') as Wrapper<Trending>
         }
 
     }

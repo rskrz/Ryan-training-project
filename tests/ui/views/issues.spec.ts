@@ -30,7 +30,7 @@ describe('Issues.vue', () => {
         }
 
         get loadingImg(): Wrapper<Issues> {
-            return this.wrapper.find('img.loader') as Wrapper<Issues>
+            return this.wrapper.find('picture.loader') as Wrapper<Issues>
         }
 
     }
